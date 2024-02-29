@@ -21,6 +21,8 @@ def main():
 
     # Crée un graph à partir de la grille
     graph = Graph(grid)
+    
+    # plot_new_grid(grid, start, end)
 
     try:
         # Cherche le chemin le plus court
@@ -40,7 +42,7 @@ def main():
         print_grid(grid,path,start,end)
 
         # Genere un plot de la grille et du chemin trouvé
-        plot_grid(grid, path)
+        plot_grid(grid, path, start, end)
 
     # Si aucun chemin n'est trouvé
     except Exception as e:

@@ -49,9 +49,27 @@ def print_grid(grid, path, start, end):
         print() # Nouvelle ligne
 
 """
+Affiche la grille dans un plot
+"""
+def plot_new_grid(grid, start, end):
+
+    # Create a new figure and axes
+    fig, ax = plt.subplots()
+
+    # Display the grid as an image
+    ax.imshow(grid, cmap='binary')
+
+    # Plot the start and end points
+    ax.plot(start.y, start.x, 'go')  # Start in green
+    ax.plot(end.y, end.x, 'ro')  # End in red
+
+    # Show the plot
+    plt.show()
+
+"""
 Affiche la grille et le chemin trouvé dans un plot
 """
-def plot_grid(grid, path):
+def plot_grid(grid, path, start, end):
 
     # Genere une nouvelle figure et un axe
     fig, ax = plt.subplots()
@@ -64,6 +82,10 @@ def plot_grid(grid, path):
         path_x = [node.x for node in path]
         path_y = [node.y for node in path]
         ax.plot(path_y, path_x, color='red')
+    
+    # Plot the start and end points
+    ax.plot(start.y, start.x, 'go')  # Start in green
+    ax.plot(end.y, end.x, 'ro')  # End in red
 
     # Montre le plot
     plt.show()

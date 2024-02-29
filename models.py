@@ -44,7 +44,7 @@ class Graph:
 Distance de Manhattan entre deux points
 """
 def distance(point1, point2):
-    return abs(point1[0] - point2[0]) + abs(point1[1] - point2[1])
+    return abs(point1.x - point2.x) + abs(point1.y - point2.y)
 
 """
 Algorithme de recherche de chemin / A*
@@ -70,7 +70,7 @@ def shortest_path(graph, start, end):
                 # Calculer le coût
                 neighbor.cost = current_node.cost + 1
                 # Calculer le coût heuristique
-                neighbor.heuristic = neighbor.cost + distance((neighbor.x, neighbor.y), (end.x, end.y))
+                neighbor.heuristic = neighbor.cost + distance(neighbor, end)
                 # Mettre à jour le parent
                 neighbor.parent = current_node
                 # Ajouter le voisin à la liste ouverte
